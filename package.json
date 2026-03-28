@@ -1,0 +1,16 @@
+{
+  "name": "streampay-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "StreamPay Monorepo for Monad Testnet",
+  "scripts": {
+    "build": "cd frontend && npm install && npm run build",
+    "dev": "cd frontend && npm run dev",
+    "lint": "cd frontend && npm run lint",
+    "contract:compile": "cd contracts && npx hardhat compile",
+    "contract:deploy": "cd contracts && npx hardhat run scripts/deploy.js --network monadTestnet"
+  },
+  "dependencies": {
+    "next": "16.2.1"
+  }
+}
