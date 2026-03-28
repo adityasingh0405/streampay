@@ -1,5 +1,7 @@
 # StreamPay — Real-Time Creator Monetization on Monad
 
+*Last Deployment Update: March 28, 2026*
+
 StreamPay is a Web3-based content platform built on the Monad testnet where users can watch videos and pay creators in real-time using microtransactions. StreamPay also introduces a **creator investment model**, allowing users to invest in a creator's pool and earn a permanent percentage of their future revenue.
 
 Built with **Next.js**, **Tailwind CSS (Neobrutalism Design)**, **Wagmi/Viem**, and **Solidity**.
