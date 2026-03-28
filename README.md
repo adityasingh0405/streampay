@@ -11,6 +11,15 @@ Built with **Next.js**, **Tailwind CSS (Neobrutalism Design)**, **Wagmi/Viem**, 
 - **Creator Investment Pool**: Invest MON in a creator's pool to secure a share of their future earnings (e.g., a 10% pool split amongst investors).
 - **Investor Dashboard**: Track your investments, view live ROIs, and see how much your creator portfolio is generating.
 - **Neobrutalist UI**: Bold, high-contrast user interface with thick borders, sharp shadows, and playful interactions.
+## 📸 Gallery
+
+| Homepage | Video Feed |
+| :---: | :---: |
+| ![Homepage](screenshots/homepage.png) | ![Feed](screenshots/feed.png) |
+
+| Dashboard | Upload Content |
+| :---: | :---: |
+| ![Dashboard](screenshots/dashboard.png) | ![Upload](screenshots/upload.png) |
 
 ## 🛠 Project Structure
 
