@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+
+@import "tailwindcss";
+
+@layer components {
+  :root {
+    --silver: #D1D1D1;
+    --orange: #FF4500;
+  }
+
+  body {
+    background-color: var(--silver);
+    color: #000000;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  .neo-card {
+    border: 3px solid #000000;
+    box-shadow: 6px 6px 0px #000000;
+    background-color: #FFFFFF;
+  }
+
+  .neo-card-orange {
+    border: 3px solid #000000;
+    box-shadow: 6px 6px 0px #000000;
+    background-color: var(--orange);
+    color: #FFFFFF;
+  }
+
+  /* Legacy aliases for colors being mapped to Orange Brutalism */
+  .neo-card-yellow, .neo-card-blue, .neo-card-red {
+    border: 3px solid #000000;
+    box-shadow: 6px 6px 0px #000000;
+    background-color: #FFFFFF;
+    color: #000000;
+  }
+
+  .neo-btn {
+    border: 3px solid #000000;
+    font-weight: 800;
+    text-transform: uppercase;
+    padding: 0.75rem 1.5rem;
+    box-shadow: 6px 6px 0px #000000;
+    transition: all 0.1s ease;
+    cursor: pointer;
+    background-color: #FFFFFF;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .neo-btn:active {
+    transform: translate(4px, 4px);
+    box-shadow: 2px 2px 0px #000000;
+  }
+
+  .neo-btn-orange {
+    background-color: var(--orange);
+    color: #000000; /* Specifically black text on orange in the image */
+  }
+
+  .neo-btn-black {
+    background-color: #000000;
+    color: #FFFFFF;
+  }
+
+  .neo-btn-white {
+    background-color: #FFFFFF;
+    color: #000000;
+  }
+
+  /* Aliasing old button classes for consistency during migration */
+  .neo-btn-yellow, .neo-btn-red, .neo-btn-blue {
+    background-color: var(--orange);
+    color: #000000;
+  }
+
+  .neo-input {
+    border: 3px solid #000000;
+    padding: 0.75rem 1rem;
+    font-weight: 700;
+    width: 100%;
+    background-color: #FFFFFF;
+  }
+  .neo-input:focus {
+    outline: none;
+    box-shadow: 6px 6px 0px #000000;
+  }
+
+  .neo-badge {
+    border: 2px solid #000000;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.85rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    box-shadow: 3px 3px 0px #000000;
+    display: inline-block;
+  }
+
+  .neo-badge-orange {
+    background-color: var(--orange);
+    color: #000000;
+  }
+
+  .neo-section {
+    border-bottom: 3px solid #000000;
+  }
+
+  .neo-sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    border-bottom: 2px solid #000000;
+    transition: background 0.2s;
+    position: relative;
+  }
+
+  .neo-sidebar-link:hover {
+    background-color: rgba(255, 69, 0, 0.1);
+  }
+
+  .neo-sidebar-link.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 6px;
+    background-color: var(--orange);
+  }
+  
+  .force-caps {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+}
+
+/* ── Ticker tape (AXIS style uses Orange/White) ──────────────── */
+.ticker-wrap {
+  overflow: hidden;
+  border-top: 3px solid black;
+  border-bottom: 3px solid black;
+  background-color: #000000;
+  color: #FFFFFF;
+}
+
+.ticker-content {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: ticker 25s linear infinite;
+}
+
+/* ── Progress bar (Orange fill) ──────────────────────────────── */
+.neo-progress-bar {
+  height: 20px;
+  border: 3px solid black;
+  background: white;
+  position: relative;
+}
+
+.neo-progress-fill {
+  height: 100%;
+  background: var(--orange);
+  transition: width 0.5s ease;
+}
+
+/* ── Animations ──────────────────────────────────────────────── */
+@keyframes ticker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.count-up {
+  animation: count-up 0.4s ease forwards;
+}
+
+/* ── Border utilities ─────────────────────────────────────────── */
+.border-3 {
+  border-width: 3px;
+}
+
+.border-b-3 {
+  border-bottom-width: 3px;
+}
+
+.border-t-3 {
+  border-top-width: 3px;
+}
+
+/* ── Shadow utilities ─────────────────────────────────────────── */
+.shadow-neo       { box-shadow: 4px 4px 0px #000000; }
+.shadow-neo-lg    { box-shadow: 6px 6px 0px #000000; }
+.shadow-neo-xl    { box-shadow: 8px 8px 0px #000000; }
+.shadow-neo-sm    { box-shadow: 2px 2px 0px #000000; }
