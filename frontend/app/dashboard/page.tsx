@@ -4,10 +4,10 @@ import { useWalletStore } from "@/store/useWalletStore";
 import { formatMON, formatAddress, getCreatorById } from "@/lib/mockData";
 import { Eye, TrendingUp, HandCoins, Activity, Wallet, FileText, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 
-export default function DashboardPage() {
+function DashboardContent() {
   const { isConnected, address, balance, watchedVideos, investments, transactions, totalSpent, totalInvested, totalReturns } = useWalletStore();
   const searchParams = useSearchParams();
   const view = searchParams.get("view");
@@ -166,7 +166,7 @@ export default function DashboardPage() {
             
             {investments.length === 0 ? (
               <div className="p-12 text-center text-gray-500 font-bold">
-                You haven't invested in any creators yet.
+                You haven&apos;t invested in any creators yet.
                 <div className="mt-4">
                   <Link href="/feed" className="neo-btn-yellow text-sm">Find Creators</Link>
                 </div>
@@ -219,5 +219,17 @@ export default function DashboardPage() {
         </div>
       )}
     </div>
+  );
+}
+
+export default function DashboardPage() {
+  return (
+    <Suspense fallback={
+      <div className="flex items-center justify-center min-h-[60vh]">
+        <p className="font-black text-center py-20 uppercase tracking-widest">Loading Dashboard...</p>
+      </div>
+    }>
+      <DashboardContent />
+    </Suspense>
   );
 }
